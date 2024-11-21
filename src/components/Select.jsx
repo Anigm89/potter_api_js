@@ -1,7 +1,5 @@
-import { useState } from "react";
 
-function Select() {
-    const [categoria, setCategoria] = useState('');
+function Select({ categoria, setCategoria }) {
 
     const handleChange = (e) => {
         setCategoria(e.target.value);
@@ -12,7 +10,7 @@ function Select() {
             <div className="intro">
                 <h2>¿Qué quieres ver?</h2>
                 <form>
-                    <select name="categorias" id="categorias" onChange={handleChange}>
+                    <select name="categorias" id="categorias" value={categoria} onChange={handleChange}>
                         <option value="">Selecciona una opción</option>
                         <option value="characters">Personajes</option>
                         <option value="books">Libros</option>
@@ -20,13 +18,8 @@ function Select() {
                         <option value="spells">Hechizos</option>
                     </select>
                 </form>
-                {
-                    categoria ?
-                        categoria : 'characters'
-
-                }
-                <p>{categoria} </p>
             </div>
+
 
         </>
     )

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 
-function Characters() {
+function Characters({ categoria }) {
     const [error, setError] = useState(null);
     const [characters, setCharacters] = useState(null);
 
     useEffect(() => {
         const get_data = async () => {
             try {
-                const url = "https://potterapi-fedeperin.vercel.app/es/characters";
+                const url = `https://potterapi-fedeperin.vercel.app/es/${categoria}`;
                 const response = await fetch(url);
                 if (!response.ok) {
                     setError("datos no encontrados");
@@ -25,6 +25,11 @@ function Characters() {
     return (
         <>
             <h1>Personajes de Harry Potter</h1>
+            {categoria ? (
+                <p>Mostrando datos de la categoría: <strong>{categoria}</strong></p>
+            ) : (
+                <p>Selecciona una categoría para ver los datos.</p>
+            )}
             {error && <p>{error} </p>}
             {!error && !characters && <p>Cargando...</p>}
 

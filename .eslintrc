@@ -1,9 +1,25 @@
 {
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
-    "settings": {
-      "react": {
-        "version": "detect"
-      }
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "plugins": ["react"],
+    "rules": {
+      "react/prop-types": "off",  // Desactiva la validación de tipos de props
+      "react/react-in-jsx-scope": "off", // No es necesario en React 17+
+      "react/jsx-uses-react": "off",  // No es necesario en React 17+
+      "react/jsx-uses-vars": "error"
     }
   }
   
