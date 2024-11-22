@@ -1,6 +1,7 @@
 import Characters from "./components/Characters";
 import Select from "./components/Select";
 import Books from "./components/Books";
+import Houses from "./components/Houses";
 import "./App.css";
 import { useState } from "react";
 
@@ -16,8 +17,14 @@ function App() {
       )}
       {
         currentCategorie === 'books' && (
-          <Books />
-        )}
+          <Books categoria={currentCategorie} />
+        )
+      }
+      {
+        currentCategorie === 'houses' && (
+          <Houses categoria={currentCategorie} />
+        )
+      }
     </>
   );
 }
