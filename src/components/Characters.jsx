@@ -5,7 +5,7 @@ function Characters({ categoria }) {
         return (
             <ul>
                 {characters.map((character) => (
-                    <li key={character.id}>
+                    <li key={character.index}>
                         <p className="name">{character.fullName} </p>
                         <img src={character.image} alt={character.nickname} />
                         <p> Alias: <span>{character.nickname} </span>  </p>

@@ -8,29 +8,29 @@ import { useState } from "react";
 
 function App() {
   const [categoria, setCategoria] = useState('');
-  const currentCategorie = categoria || 'characters';
 
   return (
     <>
       <Select categoria={categoria} setCategoria={setCategoria} />
-      {currentCategorie === 'characters' && (
-        <Characters categoria={currentCategorie} />
-      )}
+
       {
-        currentCategorie === 'books' && (
-          <Books categoria={currentCategorie} />
-        )
+        (() => {
+
+          switch (categoria) {
+            case 'characters':
+              return <Characters categoria={categoria} />
+            case 'books':
+              return <Books categoria={categoria} />
+            case 'houses':
+              return <Houses categoria={categoria} />
+            case 'spells':
+              return <Spells categoria={categoria} />
+            default:
+              return <Characters categoria={'characters'} />
+          }
+        })()
       }
-      {
-        currentCategorie === 'houses' && (
-          <Houses categoria={currentCategorie} />
-        )
-      }
-      {
-        currentCategorie === 'spells' && (
-          <Spells categoria={currentCategorie} />
-        )
-      }
+
     </>
   );
 }

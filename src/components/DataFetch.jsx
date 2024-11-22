@@ -16,7 +16,6 @@ function DataFetch({ categoria, renderData, titulo }) {
 
                 const datos = await response.json();
                 setData(datos);
-                console.log(datos);
 
             } catch (error) {
                 setError("Ha ocurrido un error al conectara con la API", error);
