@@ -7,7 +7,7 @@ function Houses({ categoria }) {
             <ul>
                 {houses.map(house => (
                     <li key={house.index} >
-                        <p class="name"> {house.house} </p>
+                        <p className="name"> {house.house} </p>
                         {house.emoji}
                         <p>{house.animal} </p>
                         <p> Fundador: {house.founder} </p>
@@ -21,7 +21,7 @@ function Houses({ categoria }) {
     return (
         <>
             <DataFetch
-                titulo='Casas de Harry Potter'
+                titulo='Casas de Howarts'
                 categoria={categoria}
                 renderData={getHouses}
             />
